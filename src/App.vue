@@ -39,12 +39,11 @@
     </v-navigation-drawer>
 
     <v-app-bar
-      absolute
-      color="#fcb69f"
+      app
+      color="primary"
       dark
-      shrink-on-scroll
-      src="https://picsum.photos/1920/1080?random"
-      scroll-target="#scrolling-techniques-2"
+      src="City.jpg"
+      prominent
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -53,9 +52,9 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Title</v-app-bar-title>
+      <v-app-bar-title>Checklist App</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
