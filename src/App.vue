@@ -56,8 +56,8 @@
       return {
         drawer: null,
         items: [
-          { title: 'Tasks', icon: 'mdi-view-dashboard', to: '/' },
-          { title: 'About', icon: 'mdi-help-box', to: '/about' },
+          { title: 'Tasks', icon: 'mdi-format-list-checks', to: '/' },
+          { title: 'About', icon: 'mdi-information-outline', to: '/about' },
         ],
       }
     },
