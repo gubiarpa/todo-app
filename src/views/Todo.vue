@@ -80,6 +80,7 @@
     },
     methods: {
       addTask() {
+        if (this.newTaskTitle === '') return;
         let newTask = {
           id: Date.now(),
           title: this.newTaskTitle,
