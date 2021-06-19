@@ -2,6 +2,8 @@
   <div class="home pa-6">
     <v-text-field
       v-model="newTaskTitle"
+      @click:append="addTask"
+      @keyup.enter="addTask"
       class="pa-3"
       outlined
       label="Add Task"
@@ -81,6 +83,15 @@
       }
     },
     methods: {
+      addTask() {
+        let newTask = {
+          id: Date.now(),
+          title: this.newTaskTitle,
+          done: false
+        };
+        this.tasks.push(newTask);
+        this.newTaskTitle = '';
+      },
       doneTask(id) {
         let task = this.tasks.filter(task => task.id === id)[0];
         task.done = ! task.done;
