@@ -10,6 +10,7 @@
       append-icon="mdi-plus"
       hide-details
       clearable
+      autocomplete="off"
     >
     </v-text-field>
     <v-list
