@@ -1,18 +1,6 @@
 <template>
   <div class="home pa-6">
-    <v-text-field
-      v-model="newTaskTitle"
-      @click:append="addTask"
-      @keyup.enter="addTask"
-      class="pa-3"
-      outlined
-      label="Add Task"
-      append-icon="mdi-plus"
-      hide-details
-      clearable
-      autocomplete="off"
-    >
-    </v-text-field>
+    <field-add-task />
     <v-list
       v-if="$store.state.tasks.length"
       class="pt-0"
@@ -72,17 +60,9 @@
 
 <script>
   export default {
-    name: 'Home',
-    data() {
-      return {
-        newTaskTitle: ''
-      }
-    },
-    methods: {
-      addTask() {
-        this.$store.commit('addTask', this.newTaskTitle);
-        this.newTaskTitle = '';
-      },
+    name: 'Home',    
+    components: {
+      'field-add-task': require('@/components/Todo/FieldAddTask.vue').default
     },
   }
 </script>
