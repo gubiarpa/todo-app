@@ -37,7 +37,3 @@ export default {
     props: ['task']
 }
 </script>
-
-<style>
-
-</style>
