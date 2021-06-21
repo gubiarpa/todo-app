@@ -1,7 +1,23 @@
 <template>
   <div class="home pa-6">
     <field-add-task />
-    <list-tasks />
+    <list-tasks
+      v-if="$store.state.tasks.length"
+     />
+    <div
+      v-else
+      class="no-tasks"
+    >
+        <v-icon
+            color="primary"
+            size="100"
+        >
+            mdi-check
+        </v-icon>
+        <div class="text-h5 primary--text">
+            No tasks
+        </div>
+    </div>
   </div>
 </template>
 

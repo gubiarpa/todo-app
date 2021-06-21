@@ -1,6 +1,5 @@
 <template>
     <v-list
-      v-if="$store.state.tasks.length"
       class="pt-0"
       flat
     >
@@ -39,20 +38,6 @@
             <v-divider></v-divider>
         </div>
     </v-list>
-    <div
-      v-else
-      class="no-tasks"
-    >
-        <v-icon
-            color="primary"
-            size="100"
-        >
-            mdi-check
-        </v-icon>
-        <div class="text-h5 primary--text">
-            No tasks
-        </div>
-    </div>
 </template>
 
 <script>
