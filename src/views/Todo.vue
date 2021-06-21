@@ -4,20 +4,9 @@
     <list-tasks
       v-if="$store.state.tasks.length"
      />
-    <div
+    <no-tasks
       v-else
-      class="no-tasks"
-    >
-        <v-icon
-            color="primary"
-            size="100"
-        >
-            mdi-check
-        </v-icon>
-        <div class="text-h5 primary--text">
-            No tasks
-        </div>
-    </div>
+    />
   </div>
 </template>
 
@@ -27,6 +16,7 @@
     components: {
       'field-add-task': require('@/components/Todo/FieldAddTask.vue').default,
       'list-tasks': require('@/components/Todo/ListTasks.vue').default,
+      'no-tasks': require('@/components/Todo/NoTasks.vue').default,
     },
   }
 </script>
