@@ -6,6 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     tasks: [],
+    snackbar: {
+      show: true,
+      text: 'gubiarpa is here'
+    }
   },
   mutations: {
     addTask(state, newTaskTitle) {
