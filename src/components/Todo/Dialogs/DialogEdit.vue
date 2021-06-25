@@ -10,7 +10,7 @@
       </v-card-title>
       <v-card-text>
         Are you sure you want to delete this task?
-        <v-text-field />
+        <v-text-field v-model="taskTitle" />
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -35,6 +35,14 @@
 <script>
 export default {
   props: ['task'],
+  data() {
+    return {
+      taskTitle: null
+    }
+  },
+  mounted () {
+    this.taskTitle = this.task.title;
+  },
 }
 </script>
 
