@@ -10,7 +10,11 @@
       </v-card-title>
       <v-card-text>
         Are you sure you want to delete this task?
-        <v-text-field v-model="taskTitle" />
+        <v-text-field
+          v-model="taskTitle"
+          @keyup.enter="saveTask"
+          @keyup.esc="$emit('close')"
+        />
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -22,6 +26,7 @@
         </v-btn>
         <v-btn
           color="red darken-1"
+          :disabled="taskTitleInvalid"
           text
           @click="saveTask"
         >
@@ -40,16 +45,24 @@ export default {
       taskTitle: null
     }
   },
+  computed: {
+    taskTitleInvalid() {
+      return !this.taskTitle || this.taskTitle === this.task.title;
+    }
+  },
   mounted () {
     this.taskTitle = this.task.title;
   },
   methods: {
     saveTask() {
-      let payload = {
-        id: this.task.id,
-        title: this.taskTitle,
+      if (!taskTitleInvalid) {
+        let payload = {
+          id: this.task.id,
+          title: this.taskTitle,
+        }
+        this.$store.commit('updateTaskTitle', payload);
+        this.$emit('close');
       }
-      this.$store.commit('updateTaskTitle', payload);
     }
   },
 }
