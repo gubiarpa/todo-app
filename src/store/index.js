@@ -20,6 +20,10 @@ export default new Vuex.Store({
       };
       state.tasks.push(newTask);
     },
+    updateTaskTitle(state, payload) {
+      let task = state.tasks.filter(task => task.id === payload.id)[0];
+      task.title = payload.title;
+    },
     doneTask(state, id) {
       let task = state.tasks.filter(task => task.id === id)[0];
       task.done = ! task.done;
