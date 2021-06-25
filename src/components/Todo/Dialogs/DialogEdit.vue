@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     saveTask() {
-      if (!taskTitleInvalid) {
+      if (!this.taskTitleInvalid) {
         let payload = {
           id: this.task.id,
           title: this.taskTitle,
