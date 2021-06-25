@@ -28,6 +28,11 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <dialog-edit
+        v-if="dialogs.edit"
+        @close="dialogs.edit = false"
+        :task="task"
+    />
     <dialog-delete
         v-if="dialogs.delete"
         @close="dialogs.delete = false"
@@ -46,7 +51,7 @@ export default {
           title: 'Edit',
           icon: 'mdi-pencil',
           click() {
-            console.log('Edit');
+            this.dialogs.edit = true;
           },
         },
         {
@@ -65,7 +70,8 @@ export default {
         },
       ],
       dialogs: {
-          delete: false
+          edit: false,
+          delete: false,
       },
     }
   },
@@ -75,6 +81,7 @@ export default {
     }
   },
   components: {
+    'dialog-edit': require('@/components/Todo/Dialogs/DialogEdit.vue').default,
     'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete.vue').default,
   },
 }
