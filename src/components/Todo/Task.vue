@@ -45,7 +45,7 @@ export default {
     props: ['task'],
     filters: {
         niceDate(value) {
-            return format(new Date(value), 'MMM dd');
+            return format(new Date(value), 'MMM d');
         }
     },
     components: {

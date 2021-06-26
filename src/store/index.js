@@ -24,6 +24,10 @@ export default new Vuex.Store({
       let task = state.tasks.filter(task => task.id === payload.id)[0];
       task.title = payload.title;
     },
+    updateTaskDueDate(state, payload) {
+      let task = state.tasks.filter(task => task.id === payload.id)[0];
+      task.dueDate = payload.dueDate;
+    },
     doneTask(state, id) {
       let task = state.tasks.filter(task => task.id === id)[0];
       task.done = ! task.done;
@@ -55,6 +59,10 @@ export default new Vuex.Store({
     updateTaskTitle({ commit }, payload) {
       commit('updateTaskTitle', payload);
       commit('showSnackbar', `Task Updated!`);
+    },
+    updateTaskDueDate({ commit }, payload) {
+      commit('updateTaskDueDate', payload);
+      commit('showSnackbar', `Due Date Updated!`);
     },
     deleteTask({ commit }, id) {
       commit('deleteTask', id);
