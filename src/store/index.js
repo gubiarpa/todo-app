@@ -17,7 +17,6 @@ export default new Vuex.Store({
         id: Date.now(),
         title: newTaskTitle,
         done: false,
-        dueDate: '2016-04-05',
       };
       state.tasks.push(newTask);
     },
